@@ -1,3 +1,18 @@
+let playerScore = 0;
+let computerScore = 0;
+
+// User's selections DOM captures
+const featherSelection = document.getElementById('feather');
+const eggSelection = document.getElementById('egg');
+const beakSelection = document.getElementById('beak');
+
+// Functions are created within event listeners to reference for later event listener removal
+function gamePlay() {
+    featherSelection.addEventListener('click', featherPlayed = () => playRound('Feather', getComputerChoice));
+    eggSelection.addEventListener('click', eggPlayed = () => playRound('Egg', getComputerChoice));
+    beakSelection.addEventListener('click', beakPlayed = () => playRound('Beak', getComputerChoice));
+}
+
 function getComputerChoice() {
     let randomNum = Math.floor(Math.random() * 3);
     switch (randomNum) {
@@ -11,59 +26,26 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
-    const lowerCase = playerSelection.toLowerCase();
-    const convertedSelection = lowerCase.charAt(0).toUpperCase() + lowerCase.slice(1);
     computerSelection = getComputerChoice();
-    if (convertedSelection === computerSelection) {
+    if (playerSelection === computerSelection) {
+        console.log("Tie")
         return "It's a tie!";
     } else if (
-        (convertedSelection === 'Feather' && computerSelection === 'Beak') || 
-        (convertedSelection === 'Beak' && computerSelection === 'Egg') ||
-        (convertedSelection === 'Egg' && computerSelection === 'Feather') 
+        (playerSelection === 'Feather' && computerSelection === 'Beak') || 
+        (playerSelection === 'Beak' && computerSelection === 'Egg') ||
+        (playerSelection === 'Egg' && computerSelection === 'Feather') 
     ) {
+        console.log("Win")
         return "Cockadoodledoo! You win!";
     } else if (
-        (convertedSelection === 'Feather' && computerSelection === 'Egg') || 
-        (convertedSelection === 'Beak' && computerSelection === 'Feather') ||
-        (convertedSelection === 'Egg' && computerSelection === 'Beak') 
+        (playerSelection === 'Feather' && computerSelection === 'Egg') || 
+        (playerSelection === 'Beak' && computerSelection === 'Feather') ||
+        (playerSelection === 'Egg' && computerSelection === 'Beak') 
     ) {
+        console.log("Lose")
         return "You lose... bok BOK!";
     }
 }
 
-function game() {
-    let playerScore = 0;
-    let computerScore = 0;
-    
-    for (let i = 0; i < 5; i++) {
-        let answer = prompt("Enter a choice: ");
-        let result = playRound(answer);
-        console.log(result);
-        if (result === "It's a tie!") {
-            playerScore++;
-            computerScore++;
-        } else if (result === "Cockadoodledoo! You win!") {
-            playerScore++;
-        } else if (result === "You lose... bok BOK!") {
-            computerScore++;
-        }
-    }
-
-    if (playerScore === computerScore) {
-        console.log("It's a tie! No one wins.");
-        console.log(`Your score: ${playerScore}`);
-        console.log(`Computer score: ${computerScore}`);
-    } else if (playerScore > computerScore) {
-        console.log("You win!");
-        console.log(`Your score: ${playerScore}`);
-        console.log(`Computer score: ${computerScore}`);
-    } else {
-        console.log("You lose!");
-        console.log(`Your score: ${playerScore}`);
-        console.log(`Computer score: ${computerScore}`);
-    }
-}
-
-game();
-
+gamePlay();
 
