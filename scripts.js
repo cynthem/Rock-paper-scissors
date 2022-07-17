@@ -1,7 +1,7 @@
 let playerScore = 0;
 let computerScore = 0;
 
-// User's selections DOM captures
+// DOM captures of user selections
 const featherSelection = document.getElementById('feather');
 const eggSelection = document.getElementById('egg');
 const beakSelection = document.getElementById('beak');
