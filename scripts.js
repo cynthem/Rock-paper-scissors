@@ -51,10 +51,19 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-function draw(player, computer) {
+const playerScored = document.getElementById('.player');
+const computerScored = document.getElementById('.computer');
+const playerImage = document.getElementById('.player-result');
+const computerImage = document.getElementById('.computer-result');
+const resultTextTop = document.getElementById('.result-text-1');
+const resultTextBottom = document.getElementById('.result-text-2');
 
+function playerTied(player, computer) {
+    if (player === 'Feather') {
+        playerImage.setAttribute('src', './resources/feather.jpg');
+        computerImage.setAttribute('src', './resources/feather.jpg');
 
-
+    }
 }
 
 gamePlay();
