@@ -42,87 +42,71 @@ function playRound(playerSelection, computerSelection) {
         (playerSelection === 'Egg' && computerSelection === 'Feather') 
     ) {
         playerWon(playerSelection);
-        computerLost(computerSelection);
     } else if (
         (playerSelection === 'Feather' && computerSelection === 'Egg') || 
         (playerSelection === 'Beak' && computerSelection === 'Feather') ||
         (playerSelection === 'Egg' && computerSelection === 'Beak') 
     ) {
         playerLost(playerSelection);
-        computerWon(computerSelection);
     }
 }
 
-function bothTied(playerChoice) {
+function bothTied(playerSelection) {
     playerScored.textContent = playerScore;
     computerScored.textContent = computerScore;
     resultTextTop.textContent = 'No winners this time!';
-    if (playerChoice === 'Feather') {
+    if (playerSelection === 'Feather') {
         playerImage.setAttribute('src', './resources/playerFeather.jpg');
         computerImage.setAttribute('src', './resources/computerFeather.jpg');
         resultTextBottom.textContent = 'You both played feather.';
-    } else if (playerChoice === 'Beak') {
+    } else if (playerSelection === 'Beak') {
         playerImage.setAttribute('src', './resources/playerBeak.jpg');
         computerImage.setAttribute('src', './resources/computerBeak.jpg');
         resultTextBottom.textContent = 'You both played beak.';
-    } else if (playerChoice === 'Egg') {
+    } else if (playerSelection === 'Egg') {
         playerImage.setAttribute('src', './resources/egg.jpg');
         computerImage.setAttribute('src', './resources/egg.jpg');
         resultTextBottom.textContent = 'You both played egg.';
     }
 }
 
-function playerWon(playerChoice) {
+function playerWon(playerSelection) {
     playerScore++;
     playerScored.textContent = playerScore;
+    computerScored.textContent = computerScore;
     resultTextTop.textContent = 'You win this round!';
-    if (playerChoice === 'Feather') {
+    if (playerSelection === 'Feather') {
         playerImage.setAttribute('src', './resources/playerFeather.jpg');
+        computerImage.setAttribute('src', './resources/computerBeak.jpg');
         resultTextBottom.textContent = 'Feather tickles beak.';
-    } else if (playerChoice === 'Beak') {
+    } else if (playerSelection === 'Beak') {
         playerImage.setAttribute('src', './resources/playerBeak.jpg');
+        computerImage.setAttribute('src', './resources/egg.jpg');
         resultTextBottom.textContent = 'Beak pecks egg.';
-    } else if (playerChoice === 'Egg') {
+    } else if (playerSelection === 'Egg') {
         playerImage.setAttribute('src', './resources/egg.jpg');
+        computerImage.setAttribute('src', './resources/computerFeather.jpg');
         resultTextBottom.textContent = 'Egg flattens feather.';
     }
 }
 
-function computerLost(computerChoice) {
-    computerScored.textContent = computerScore;
-    if (computerChoice === 'Feather') {
-        playerImage.setAttribute('src', './resources/computerFeather.jpg');
-    } else if (computerChoice === 'Beak') {
-        playerImage.setAttribute('src', './resources/computerBeak.jpg');
-    } else if (computerChoice === 'Egg') {
-        playerImage.setAttribute('src', './resources/egg.jpg');
-    }
-}
-
-function playerLost(playerChoice) {
-    playerScored.textContent = playerScore;
-    resultTextTop.textContent = 'You lose this round... bok BOK!';
-    if (playerChoice === 'Feather') {
-        playerImage.setAttribute('src', './resources/playerFeather.jpg');
-        resultTextBottom.textContent = 'Egg flattens feather.';
-    } else if (playerChoice === 'Beak') {
-        playerImage.setAttribute('src', './resources/playerBeak.jpg');
-        resultTextBottom.textContent = 'Feather tickles beak.';
-    } else if (playerChoice === 'Egg') {
-        playerImage.setAttribute('src', './resources/egg.jpg');
-        resultTextBottom.textContent = 'Beak pecks egg.';
-    }
-}
-
-function computerWon(computerChoice) {
+function playerLost(playerSelection) {
     computerScore++;
+    playerScored.textContent = playerScore;
     computerScored.textContent = computerScore;
-    if (computerChoice === 'Feather') {
-        playerImage.setAttribute('src', './resources/computerFeather.jpg');
-    } else if (computerChoice === 'Beak') {
-        playerImage.setAttribute('src', './resources/computerBeak.jpg');
-    } else if (computerChoice === 'Egg') {
+    resultTextTop.textContent = 'You lose this round... bok BOK!';
+    if (playerSelection === 'Feather') {
+        playerImage.setAttribute('src', './resources/playerFeather.jpg');
+        computerImage.setAttribute('src', './resources/egg.jpg');
+        resultTextBottom.textContent = 'Egg flattens feather.';
+    } else if (playerSelection === 'Beak') {
+        playerImage.setAttribute('src', './resources/playerBeak.jpg');
+        computerImage.setAttribute('src', './resources/computerFeather.jpg');
+        resultTextBottom.textContent = 'Feather tickles beak.';
+    } else if (playerSelection === 'Egg') {
         playerImage.setAttribute('src', './resources/egg.jpg');
+        computerImage.setAttribute('src', './resources/computerBeak.jpg');
+        resultTextBottom.textContent = 'Beak pecks egg.';
     }
 }
 
