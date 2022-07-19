@@ -161,6 +161,9 @@ function restartGame() {
     declaredWinner.innerHTML = declaredWinner.innerHTML.replace('You win! You are the superior chicken!', 'First to score 5 points wins!');
     declaredWinner.innerHTML = declaredWinner.innerHTML.replace('You lose. Better luck next time... buckAW!', 'First to score 5 points wins!');
 
+    resultTextTop.textContent = 'Welcome player...';
+    resultTextBottom.textContent = 'CHOOSE YOUR WEAPON:';
+
     playerImage.classList.replace('hide', 'show');
     playerImage.setAttribute('src', './resources/playerYellow.jpg');
     computerImage.classList.replace('hide', 'show');
