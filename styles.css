@@ -1,3 +1,10 @@
+html,
+body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+
 .container {
     display: flex;
     flex-direction: column;
@@ -18,30 +25,83 @@
 .header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    background-color: black;
 }
 
-.player-img, .computer-img {
-    width: 20%;
+h1 {
+    color: white;
+}
+
+.player-img, 
+.computer-img {
+    width: 10%;
 }
 
 
 /* Content - Rules */
 
+.content {
+    display: flex;
+    flex-direction: column;
+}
+
+h2 {
+    text-align: center;
+}
+
 
 /* Content - Results */
+
+.results {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.results-images {
+    display: flex;
+    flex-direction: column;
+}
+
+.images {
+    display: flex;
+    justify-content: space-evenly;
+}
 
 #images>img {
     width: 30%;
 }
 
+.text {
+    display: flex;
+    flex-direction: column;
+}
+
+.text>p, 
+.text>button {
+    text-align: center;
+}
+
 
 /* Content - Gameplay */
 
+.gameplay {
+    display: flex;
+    flex-direction: column;
+}
+
+h3,
+.buttons {
+    text-align: center;
+}
 
 /* Footer */
 
 .footer {
     background-color: black;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
 .footer>p {
