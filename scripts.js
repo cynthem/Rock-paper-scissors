@@ -129,10 +129,10 @@ function declareWinner() {
     winnerImage.classList.replace('hide', 'show');
     // Change heading and show winner's image
     if (playerScore > computerScore) {
-        declaredWinner.innerHTML = declaredWinner.innerHTML.replace('You win! You are the superior chicken!');
+        declaredWinner.innerHTML = declaredWinner.innerHTML.replace('First to score 5 points wins!', 'You win! You are the superior chicken!');
         winnerImage.setAttribute('src', './resources/playerChicken.png');
     } else {
-        declaredWinner.innerHTML = declaredWinner.innerHTML.replace('You lose. Better luck next time... buckAW!');
+        declaredWinner.innerHTML = declaredWinner.innerHTML.replace('First to score 5 points wins!', 'You lose. Better luck next time... buckAW!');
         winnerImage.setAttribute('src', './resources/computerChicken.png');
     }
 }
@@ -159,17 +159,13 @@ function restartGame() {
     resultTextTop.textContent = '';
     resultTextBottom.textContent = '';
 
-    declaredWinner.innerHTML = declaredWinner.innerHTML.replace('First to score 5 points wins!');
+    declaredWinner.innerHTML = declaredWinner.innerHTML.replace('You win! You are the superior chicken!', 'First to score 5 points wins!');
 
     winnerImage.classList.replace('show', 'hide');
     playerImage.classList.replace('hide', 'show');
     playerImage.setAttribute('src', './resources/playerYellow.jpg');
     computerImage.classList.replace('hide', 'show');
     computerImage.setAttribute('src', './resources/computerRed.jpg');
-    
-
-
-
 }
 
 gamePlay();
