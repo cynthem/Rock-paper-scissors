@@ -210,10 +210,16 @@ h2 {
 }
 
 .gameplay>button {
-    background-color: #056b13;
+    background-color: #046c13;
     margin-left: 1%;
     margin-right: 1%;
-    width: 12%;
+    width: 13%;
+}
+
+#feather>img,
+#egg>img,
+#beak>img {
+    width: 60%;
 }
 
 
