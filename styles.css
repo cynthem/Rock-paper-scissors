@@ -8,6 +8,11 @@ body {
 .container {
     display: flex;
     flex-direction: column;
+    background-image: url('./resources/background.jpg');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: auto;
 }
 
 .show {
@@ -26,7 +31,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgba(105, 105, 105, 0);
+    background-color: rgba(105, 105, 105, 100);
 }
 
 h1 {
@@ -35,7 +40,7 @@ h1 {
 
 .player-img, 
 .computer-img {
-    width: 10%;
+    width: 8%;
 }
 
 
@@ -62,29 +67,36 @@ h2 {
     justify-content: space-evenly;
 }
 
-.player-score, 
+.player-score,
 .computer-score {
     background-color: gold;
-    box-sizing: border-box;
-    padding: 5px;
+    text-align: center;
+    height: 12vh;
+    width: 8vw;
 }
 
-.player-score>p, 
-.computer-score>p {
-    text-align: center;
+.player-score {
+    margin-left: 8%;
+}
+
+.computer-score {
+    margin-right: 8%;
 }
 
 .results-images {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .images {
     display: flex;
     justify-content: space-evenly;
+    height: 38vh;
+    width: 70vw;
 }
 
-#images>img {
+.images>img {
     width: 30%;
 }
 
@@ -92,11 +104,19 @@ h2 {
     display: flex;
     flex-direction: column;
     background-color: yellowgreen;
+    height: 13vh;
+    width: 20vw;
+    margin: 5%;
 }
 
 .text>p, 
 .text>button {
     text-align: center;
+}
+
+.text>button {
+    width: 50%;
+    margin: auto;
 }
 
 
