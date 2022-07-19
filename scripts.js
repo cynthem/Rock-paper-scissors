@@ -54,19 +54,19 @@ const resultTextBottom = document.getElementById('result-text-2');
 function bothTied(playerSelection) {
     playerScored.textContent = playerScore;
     computerScored.textContent = computerScore;
-    resultTextTop.textContent = 'No winners this time!';
+    resultTextBottom.textContent = 'No winners this time!';
     if (playerSelection === 'Feather') {
         playerImage.setAttribute('src', './resources/playerFeather.jpg');
         computerImage.setAttribute('src', './resources/computerFeather.jpg');
-        resultTextBottom.textContent = 'You both played feather.';
+        resultTextTop.textContent = 'You both played feather.';
     } else if (playerSelection === 'Beak') {
         playerImage.setAttribute('src', './resources/playerBeak.jpg');
         computerImage.setAttribute('src', './resources/computerBeak.jpg');
-        resultTextBottom.textContent = 'You both played beak.';
+        resultTextTop.textContent = 'You both played beak.';
     } else if (playerSelection === 'Egg') {
         playerImage.setAttribute('src', './resources/egg.jpg');
         computerImage.setAttribute('src', './resources/egg.jpg');
-        resultTextBottom.textContent = 'You both played egg.';
+        resultTextTop.textContent = 'You both played egg.';
     }
 }
 
@@ -74,62 +74,102 @@ function playerWon(playerSelection) {
     playerScore++;
     playerScored.textContent = playerScore;
     computerScored.textContent = computerScore;
-    resultTextTop.textContent = 'You win this round!';
+    resultTextBottom.textContent = 'You win this round!';
     if (playerSelection === 'Feather') {
         playerImage.setAttribute('src', './resources/playerFeather.jpg');
         computerImage.setAttribute('src', './resources/computerBeak.jpg');
-        resultTextBottom.textContent = 'Feather tickles beak.';
+        resultTextTop.textContent = 'Feather tickles beak.';
     } else if (playerSelection === 'Beak') {
         playerImage.setAttribute('src', './resources/playerBeak.jpg');
         computerImage.setAttribute('src', './resources/egg.jpg');
-        resultTextBottom.textContent = 'Beak pecks egg.';
+        resultTextTop.textContent = 'Beak pecks egg.';
     } else if (playerSelection === 'Egg') {
         playerImage.setAttribute('src', './resources/egg.jpg');
         computerImage.setAttribute('src', './resources/computerFeather.jpg');
-        resultTextBottom.textContent = 'Egg flattens feather.';
-    }
+        resultTextTop.textContent = 'Egg flattens feather.';
+    };
+    if (playerScore === 5) declareWinner();
 }
 
 function playerLost(playerSelection) {
     computerScore++;
     playerScored.textContent = playerScore;
     computerScored.textContent = computerScore;
-    resultTextTop.textContent = 'You lose this round... bok BOK!';
+    resultTextBottom.textContent = 'You lose this round... bok BOK!';
     if (playerSelection === 'Feather') {
         playerImage.setAttribute('src', './resources/playerFeather.jpg');
         computerImage.setAttribute('src', './resources/egg.jpg');
-        resultTextBottom.textContent = 'Egg flattens feather.';
+        resultTextTop.textContent = 'Egg flattens feather.';
     } else if (playerSelection === 'Beak') {
         playerImage.setAttribute('src', './resources/playerBeak.jpg');
         computerImage.setAttribute('src', './resources/computerFeather.jpg');
-        resultTextBottom.textContent = 'Feather tickles beak.';
+        resultTextTop.textContent = 'Feather tickles beak.';
     } else if (playerSelection === 'Egg') {
         playerImage.setAttribute('src', './resources/egg.jpg');
         computerImage.setAttribute('src', './resources/computerBeak.jpg');
-        resultTextBottom.textContent = 'Beak pecks egg.';
+        resultTextTop.textContent = 'Beak pecks egg.';
+    };
+    if (computerScore === 5) declareWinner();
+}
+
+// DOM captures of hidden results elements
+const winnerImage = document.getElementById('end-result');
+const declaredWinner = document.getElementById('rules-title');
+const resetButton = document.getElementById('reset-btn');
+
+function declareWinner() {
+    restartButton();
+    // Remove event listeners
+    featherSelection.removeEventListener('click', featherPlayed);
+    eggSelection.removeEventListener('click', eggPlayed);
+    beakSelection.removeEventListener('click', beakPlayed);
+    // Hide gameplay images and show central image
+    playerImage.classList.replace('show', 'hide');
+    computerImage.classList.replace('show', 'hide');
+    winnerImage.classList.replace('hide', 'show');
+    // Change heading and show winner's image
+    if (playerScore > computerScore) {
+        declaredWinner.innerHTML = declaredWinner.innerHTML.replace('You win! You are the superior chicken!');
+        winnerImage.setAttribute('src', './resources/playerChicken.png');
+    } else {
+        declaredWinner.innerHTML = declaredWinner.innerHTML.replace('You lose. Better luck next time... buckAW!');
+        winnerImage.setAttribute('src', './resources/computerChicken.png');
     }
 }
 
-function declareWinner() {
-    resultTextTop.remove();
-    resultTextBottom.remove();
-    const textDiv = document.getElementById('text');
-    const resetButton = document.createElement('button');
-    resetButton.innerHTML('Play Again');
-    textDiv.appendChild(resetButton);
-    playerImage.remove();
-    computerImage.remove();
-    const imageDiv = document.getElementById('images');
-    const newImage = document.createElement('img');
-    imageDiv.appendChild(newImage);
-    const declaredWinner = document.getElementById('rules-title');
-    if (playerScore > computerScore) {
-        declaredWinner.innerHTML = declaredWinner.innerHTML.replace('You win! You are the superior chicken!');
-        newImage.setAttribute('src', './resources/playerChicken.png');
-    } else {
-        declaredWinner.innerHTML = declaredWinner.innerHTML.replace('You lose. Better luck next time... buckAW!');
-        newImage.setAttribute('src', './resources/computerChicken.png');
-    }
+function restartButton() {
+    resultTextTop.classList.replace('show', 'hide');
+    resultTextBottom.classList.replace('show', 'hide');
+    resetButton.classList.replace('hide', 'show');
+    resetButton.addEventListener('click', restartGame);
+}
+
+function restartGame() {
+    gamePlay();
+
+    playerScore = 0;
+    computerScore = 0;
+    playerScored.textContent = playerScore;
+    computerScored.textContent = computerScore;
+
+    resetButton.classList.replace('show', 'hide');
+
+    resultTextTop.classList.replace('hide', 'show');
+    resultTextBottom.classList.replace('hide', 'show');
+    resultTextTop.textContent = '';
+    resultTextBottom.textContent = '';
+
+    declaredWinner.innerHTML = declaredWinner.innerHTML.replace('First to score 5 points wins!');
+
+    winnerImage.classList.replace('show', 'hide');
+    playerImage.classList.replace('hide', 'show');
+    playerImage.setAttribute('src', './resources/egg.jpg');
+    computerImage.classList.replace('hide', 'show');
+    computerImage.setAttribute('src', './resources/computerBeak.jpg');
+    
+
+
+
 }
 
 gamePlay();
