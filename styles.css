@@ -1,3 +1,43 @@
+/* averia-libre-regular - latin */
+@font-face {
+    font-family: 'Averia Libre';
+    font-style: normal;
+    font-weight: 400;
+    src: url('./resources/fonts/averia-libre-v16-latin-regular.eot'); /* IE9 Compat Modes */
+    src: local(''),
+         url('./resources/fonts/averia-libre-v16-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('./resources/fonts/averia-libre-v16-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+         url('./resources/fonts/averia-libre-v16-latin-regular.woff') format('woff'), /* Modern Browsers */
+         url('./resources/fonts/averia-libre-v16-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('./resources/fonts/averia-libre-v16-latin-regular.svg#AveriaLibre') format('svg'); /* Legacy iOS */
+  }
+  /* averia-libre-italic - latin */
+  @font-face {
+    font-family: 'Averia Libre';
+    font-style: italic;
+    font-weight: 400;
+    src: url('./resources/fonts/averia-libre-v16-latin-italic.eot'); /* IE9 Compat Modes */
+    src: local(''),
+         url('./resources/fonts/averia-libre-v16-latin-italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('./resources/fonts/averia-libre-v16-latin-italic.woff2') format('woff2'), /* Super Modern Browsers */
+         url('./resources/fonts/averia-libre-v16-latin-italic.woff') format('woff'), /* Modern Browsers */
+         url('./resources/fonts/averia-libre-v16-latin-italic.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('./resources/fonts/averia-libre-v16-latin-italic.svg#AveriaLibre') format('svg'); /* Legacy iOS */
+  }
+  /* averia-libre-700 - latin */
+  @font-face {
+    font-family: 'Averia Libre';
+    font-style: normal;
+    font-weight: 700;
+    src: url('./resources/fonts/averia-libre-v16-latin-700.eot'); /* IE9 Compat Modes */
+    src: local(''),
+         url('./resources/fonts/averia-libre-v16-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('./resources/fonts/averia-libre-v16-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+         url('./resources/fonts/averia-libre-v16-latin-700.woff') format('woff'), /* Modern Browsers */
+         url('./resources/fonts/averia-libre-v16-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('./resources/fonts/averia-libre-v16-latin-700.svg#AveriaLibre') format('svg'); /* Legacy iOS */
+  }
+
 html,
 body {
     padding: 0;
@@ -7,7 +47,7 @@ body {
     background-attachment: fixed;
     background-position: 50% 50%;
     background-size: cover;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: 'Averia Libre', sans-serif;
 }
 
 .container {
