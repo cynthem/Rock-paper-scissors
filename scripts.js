@@ -20,6 +20,9 @@ let computerScore = 0;
 playerScored.textContent = playerScore;
 computerScored.textContent = computerScore;
 
+resultTextTop.textContent = 'Welcome player...';
+resultTextBottom.textContent = 'CHOOSE YOUR WEAPON:';
+
 function getComputerChoice() {
     let randomNum = Math.floor(Math.random() * 3);
     switch (randomNum) {
