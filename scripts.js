@@ -64,8 +64,8 @@ function bothTied(playerSelection) {
         computerImage.setAttribute('src', './resources/computerBeak.jpg');
         resultTextTop.textContent = 'You both played beak.';
     } else if (playerSelection === 'Egg') {
-        playerImage.setAttribute('src', './resources/egg.jpg');
-        computerImage.setAttribute('src', './resources/egg.jpg');
+        playerImage.setAttribute('src', './resources/playerEgg.jpg');
+        computerImage.setAttribute('src', './resources/computerEgg.jpg');
         resultTextTop.textContent = 'You both played egg.';
     }
 }
@@ -81,10 +81,10 @@ function playerWon(playerSelection) {
         resultTextTop.textContent = 'Feather tickles beak.';
     } else if (playerSelection === 'Beak') {
         playerImage.setAttribute('src', './resources/playerBeak.jpg');
-        computerImage.setAttribute('src', './resources/egg.jpg');
+        computerImage.setAttribute('src', './resources/computerEgg.jpg');
         resultTextTop.textContent = 'Beak pecks egg.';
     } else if (playerSelection === 'Egg') {
-        playerImage.setAttribute('src', './resources/egg.jpg');
+        playerImage.setAttribute('src', './resources/playerEgg.jpg');
         computerImage.setAttribute('src', './resources/computerFeather.jpg');
         resultTextTop.textContent = 'Egg flattens feather.';
     };
@@ -98,14 +98,14 @@ function playerLost(playerSelection) {
     resultTextBottom.textContent = 'You lose this round... bok BOK!';
     if (playerSelection === 'Feather') {
         playerImage.setAttribute('src', './resources/playerFeather.jpg');
-        computerImage.setAttribute('src', './resources/egg.jpg');
+        computerImage.setAttribute('src', './resources/computerEgg.jpg');
         resultTextTop.textContent = 'Egg flattens feather.';
     } else if (playerSelection === 'Beak') {
         playerImage.setAttribute('src', './resources/playerBeak.jpg');
         computerImage.setAttribute('src', './resources/computerFeather.jpg');
         resultTextTop.textContent = 'Feather tickles beak.';
     } else if (playerSelection === 'Egg') {
-        playerImage.setAttribute('src', './resources/egg.jpg');
+        playerImage.setAttribute('src', './resources/playerEgg.jpg');
         computerImage.setAttribute('src', './resources/computerBeak.jpg');
         resultTextTop.textContent = 'Beak pecks egg.';
     };
@@ -163,9 +163,9 @@ function restartGame() {
 
     winnerImage.classList.replace('show', 'hide');
     playerImage.classList.replace('hide', 'show');
-    playerImage.setAttribute('src', './resources/egg.jpg');
+    playerImage.setAttribute('src', './resources/playerYellow.jpg');
     computerImage.classList.replace('hide', 'show');
-    computerImage.setAttribute('src', './resources/computerBeak.jpg');
+    computerImage.setAttribute('src', './resources/computerRed.jpg');
     
 
 
