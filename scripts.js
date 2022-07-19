@@ -1,19 +1,6 @@
 let playerScore = 0;
 let computerScore = 0;
 
-// DOM captures of user selections
-const featherSelection = document.getElementById('feather');
-const eggSelection = document.getElementById('egg');
-const beakSelection = document.getElementById('beak');
-// DOM captures of results
-const playerScored = document.getElementById('player');
-const computerScored = document.getElementById('computer');
-const playerImage = document.getElementById('player-result');
-const computerImage = document.getElementById('computer-result');
-const resultTextTop = document.getElementById('result-text-1');
-const resultTextBottom = document.getElementById('result-text-2');
-const resultTextBottomSpan = document.getElementById('result-text-3');
-
 function getComputerChoice() {
     let randomNum = Math.floor(Math.random() * 3);
     switch (randomNum) {
@@ -25,6 +12,11 @@ function getComputerChoice() {
             return 'Beak';
     }
 }
+
+// DOM captures of user selections
+const featherSelection = document.getElementById('feather');
+const eggSelection = document.getElementById('egg');
+const beakSelection = document.getElementById('beak');
 
 function gamePlay() {
     featherSelection.addEventListener('click', featherPlayed = () => playRound('Feather', getComputerChoice));
@@ -50,6 +42,14 @@ function playRound(playerSelection, computerSelection) {
         playerLost(playerSelection);
     }
 }
+
+// DOM captures of results
+const playerScored = document.getElementById('player');
+const computerScored = document.getElementById('computer');
+const playerImage = document.getElementById('player-result');
+const computerImage = document.getElementById('computer-result');
+const resultTextTop = document.getElementById('result-text-1');
+const resultTextBottom = document.getElementById('result-text-2');
 
 function bothTied(playerSelection) {
     playerScored.textContent = playerScore;
@@ -107,6 +107,22 @@ function playerLost(playerSelection) {
         playerImage.setAttribute('src', './resources/egg.jpg');
         computerImage.setAttribute('src', './resources/computerBeak.jpg');
         resultTextBottom.textContent = 'Beak pecks egg.';
+    }
+}
+
+function declareWinner() {
+    playerImage.remove();
+    computerImage.remove();
+    const imageDiv = document.getElementById('images');
+    const newImage = document.createElement('img');
+    imageDiv.appendChild(newImage);
+    const declaredWinner = document.getElementById('rules-title');
+    if (playerScore > computerScore) {
+        declaredWinner.innerHTML = declaredWinner.innerHTML.replace('You win! You are the superior chicken!');
+        newImage.setAttribute('src', './resources/playerChicken.png');
+    } else {
+        declaredWinner.innerHTML = declaredWinner.innerHTML.replace('You lose. Better luck next time... buckAW!');
+        newImage.setAttribute('src', './resources/computerChicken.png');
     }
 }
 
