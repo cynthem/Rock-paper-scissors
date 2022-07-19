@@ -186,6 +186,9 @@ h2 {
     width: 50%;
     margin: 10% auto;
     padding: 5%;
+    font-family: 'Averia Libre', sans-serif;
+    font-size: 24px;
+    white-space: nowrap;
 }
 
 #result-text-1 {
@@ -210,6 +213,7 @@ h2 {
     background-color: #056b13;
     margin-left: 1%;
     margin-right: 1%;
+    width: 12%;
 }
 
 
