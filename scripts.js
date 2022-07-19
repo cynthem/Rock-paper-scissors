@@ -1,5 +1,24 @@
+// DOM captures of user selections
+const featherSelection = document.getElementById('feather');
+const eggSelection = document.getElementById('egg');
+const beakSelection = document.getElementById('beak');
+// DOM captures of results
+const playerScored = document.getElementById('player');
+const computerScored = document.getElementById('computer');
+const playerImage = document.getElementById('player-result');
+const computerImage = document.getElementById('computer-result');
+const resultTextTop = document.getElementById('result-text-1');
+const resultTextBottom = document.getElementById('result-text-2');
+// DOM captures of hidden results elements
+const winnerImage = document.getElementById('end-result');
+const declaredWinner = document.getElementById('rules-title');
+const resetButton = document.getElementById('reset-btn');
+
 let playerScore = 0;
 let computerScore = 0;
+
+playerScored.textContent = playerScore;
+computerScored.textContent = computerScore;
 
 function getComputerChoice() {
     let randomNum = Math.floor(Math.random() * 3);
@@ -12,11 +31,6 @@ function getComputerChoice() {
             return 'Beak';
     }
 }
-
-// DOM captures of user selections
-const featherSelection = document.getElementById('feather');
-const eggSelection = document.getElementById('egg');
-const beakSelection = document.getElementById('beak');
 
 function gamePlay() {
     featherSelection.addEventListener('click', featherPlayed = () => playRound('Feather', getComputerChoice));
@@ -42,14 +56,6 @@ function playRound(playerSelection, computerSelection) {
         playerLost(playerSelection);
     }
 }
-
-// DOM captures of results
-const playerScored = document.getElementById('player');
-const computerScored = document.getElementById('computer');
-const playerImage = document.getElementById('player-result');
-const computerImage = document.getElementById('computer-result');
-const resultTextTop = document.getElementById('result-text-1');
-const resultTextBottom = document.getElementById('result-text-2');
 
 function bothTied(playerSelection) {
     playerScored.textContent = playerScore;
@@ -112,17 +118,16 @@ function playerLost(playerSelection) {
     if (computerScore === 5) declareWinner();
 }
 
-// DOM captures of hidden results elements
-const winnerImage = document.getElementById('end-result');
-const declaredWinner = document.getElementById('rules-title');
-const resetButton = document.getElementById('reset-btn');
-
 function declareWinner() {
-    restartButton();
     // Remove event listeners
     featherSelection.removeEventListener('click', featherPlayed);
     eggSelection.removeEventListener('click', eggPlayed);
     beakSelection.removeEventListener('click', beakPlayed);
+    // Hide results text and show reset button
+    resultTextTop.classList.replace('show', 'hide');
+    resultTextBottom.classList.replace('show', 'hide');
+    resetButton.classList.replace('hide', 'show');
+    resetButton.addEventListener('click', restartGame);
     // Hide gameplay images and show central image
     playerImage.classList.replace('show', 'hide');
     computerImage.classList.replace('show', 'hide');
@@ -137,16 +142,7 @@ function declareWinner() {
     }
 }
 
-function restartButton() {
-    resultTextTop.classList.replace('show', 'hide');
-    resultTextBottom.classList.replace('show', 'hide');
-    resetButton.classList.replace('hide', 'show');
-    resetButton.addEventListener('click', restartGame);
-}
-
 function restartGame() {
-    gamePlay();
-
     playerScore = 0;
     computerScore = 0;
     playerScored.textContent = playerScore;
@@ -161,11 +157,13 @@ function restartGame() {
 
     declaredWinner.innerHTML = declaredWinner.innerHTML.replace('You win! You are the superior chicken!', 'First to score 5 points wins!');
 
-    winnerImage.classList.replace('show', 'hide');
     playerImage.classList.replace('hide', 'show');
     playerImage.setAttribute('src', './resources/playerYellow.jpg');
     computerImage.classList.replace('hide', 'show');
     computerImage.setAttribute('src', './resources/computerRed.jpg');
+    winnerImage.classList.replace('show', 'hide');
+
+    gamePlay();
 }
 
 gamePlay();
