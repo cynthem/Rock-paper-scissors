@@ -111,6 +111,12 @@ function playerLost(playerSelection) {
 }
 
 function declareWinner() {
+    resultTextTop.remove();
+    resultTextBottom.remove();
+    const textDiv = document.getElementById('text');
+    const resetButton = document.createElement('button');
+    resetButton.innerHTML('Play Again');
+    textDiv.appendChild(resetButton);
     playerImage.remove();
     computerImage.remove();
     const imageDiv = document.getElementById('images');
