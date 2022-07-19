@@ -104,7 +104,7 @@ function playerLost(playerSelection) {
     computerScore++;
     playerScored.textContent = playerScore;
     computerScored.textContent = computerScore;
-    resultTextBottom.textContent = 'You lose this round... bok BOK!';
+    resultTextBottom.textContent = 'You lose this round.';
     if (playerSelection === 'Feather') {
         playerImage.setAttribute('src', './resources/playerFeather.jpg');
         computerImage.setAttribute('src', './resources/computerEgg.jpg');
