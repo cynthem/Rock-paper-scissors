@@ -48,6 +48,10 @@ h1 {
 
 h2 {
     text-align: center;
+    color: white;
+    background-color: black;
+    margin: 3% 30%;
+    padding: 1%;
 }
 
 
@@ -87,21 +91,13 @@ h2 {
 
 .gameplay {
     display: flex;
-    flex-direction: column;
-}
-
-h3,
-.buttons {
-    text-align: center;
+    justify-content: center;
 }
 
 /* Footer */
 
 .footer {
     background-color: black;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
 }
 
 .footer>p {
