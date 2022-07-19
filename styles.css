@@ -1,3 +1,33 @@
-#images>img {
+.show {
+    visibility: visible;
+}
+
+.hide {
+    display: none;
+}
+
+
+
+/* Header */
+
+.player-img, .computer-img {
     width: 20%;
 }
+
+
+/* Content - Rules */
+
+
+/* Content - Results */
+
+#images>img {
+    width: 30%;
+}
+
+
+/* Content - Gameplay */
+
+
+/* Footer */
+
+
