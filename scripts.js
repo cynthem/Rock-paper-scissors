@@ -137,7 +137,7 @@ function declareWinner() {
     winnerImage.classList.replace('hide', 'show');
     // Change heading and show winner's image
     if (playerScore > computerScore) {
-        declaredWinner.innerHTML = declaredWinner.innerHTML.replace('First to score 5 points wins!', 'You win! You are the superior chicken!');
+        declaredWinner.innerHTML = declaredWinner.innerHTML.replace('First to score 5 points wins!', 'Cockadoodle doo! You win!');
         winnerImage.setAttribute('src', './resources/playerChicken.png');
     } else {
         declaredWinner.innerHTML = declaredWinner.innerHTML.replace('First to score 5 points wins!', 'You lose. Better luck next time... buckAW!');
