@@ -10,8 +10,10 @@ const computerImage = document.getElementById('computer-result');
 const resultTextTop = document.getElementById('result-text-1');
 const resultTextBottom = document.getElementById('result-text-2');
 // DOM captures of hidden results elements
+const rulesTitle = document.getElementById('rules-title');
+const winTitle = document.getElementById('win-title');
+const loseTitle = document.getElementById('lose-title');
 const winnerImage = document.getElementById('end-result');
-const declaredWinner = document.getElementById('rules-title');
 const resetButton = document.getElementById('reset-btn');
 
 let playerScore = 0;
@@ -59,6 +61,8 @@ function playRound(playerSelection, computerSelection) {
         playerLost(playerSelection);
     }
 }
+
+
 
 function bothTied(playerSelection) {
     playerScored.textContent = playerScore;
@@ -122,32 +126,90 @@ function playerLost(playerSelection) {
 }
 
 function declareWinner() {
+
     // Remove event listeners
     featherSelection.removeEventListener('click', featherPlayed);
     eggSelection.removeEventListener('click', eggPlayed);
     beakSelection.removeEventListener('click', beakPlayed);
-    // Hide results text and show reset button
-    resultTextTop.classList.replace('show', 'hide');
-    resultTextBottom.classList.replace('show', 'hide');
-    resetButton.classList.replace('hide', 'show');
-    resetButton.addEventListener('click', restartGame);
-    // Hide gameplay images and show central image
-    playerImage.classList.replace('show', 'hide');
-    computerImage.classList.replace('show', 'hide');
-    winnerImage.classList.replace('hide', 'show');
-    // Change heading and show winner's image
-    declaredWinner.classList.add('fade-in');
+
+    // Replace center images with winner's image
+    playerImage.classList.add('fade-out');
+    setTimeout(() => playerImage.classList.replace('show', 'hide'), 2001);
+    computerImage.classList.add('fade-out');
+    setTimeout(() => computerImage.classList.replace('show', 'hide'), 2001);
+    setTimeout(() => winnerImage.classList.replace('hide', 'show'), 2001);
     winnerImage.classList.add('fade-in');
+
+    // Hide results text and show reset button
+    resultTextTop.classList.add('fade-out');
+    setTimeout(() => resultTextTop.classList.replace('show', 'hide'), 2001);
+    resultTextBottom.classList.add('fade-out');
+    setTimeout(() => resultTextBottom.classList.replace('show', 'hide'), 2001);
+    setTimeout(() => resetButton.classList.replace('hide', 'show'), 2001);
+    resetButton.classList.add('fade-in');
+
+    // Determine which image and text to show based on the winner
     if (playerScore > computerScore) {
-        declaredWinner.innerHTML = declaredWinner.innerHTML.replace('First to score 5 points wins!', 'Cockadoodledoo! You win!');
         winnerImage.setAttribute('src', './resources/playerChicken.png');
+        rulesTitle.classList.add('fade-out');
+        setTimeout(() => rulesTitle.classList.replace('show', 'hide'), 2001);
+        setTimeout(() => winTitle.classList.replace('hide', 'show'), 2001);
+        winTitle.classList.add('fade-in');
+        resetButton.addEventListener('click', restartWinGame);
     } else {
-        declaredWinner.innerHTML = declaredWinner.innerHTML.replace('First to score 5 points wins!', 'You lose. Better luck next time... buckAW!');
         winnerImage.setAttribute('src', './resources/computerChicken.png');
+        rulesTitle.classList.add('fade-out');
+        setTimeout(() => rulesTitle.classList.replace('show', 'hide'), 2001);
+        setTimeout(() => loseTitle.classList.replace('hide', 'show'), 2001);
+        loseTitle.classList.add('fade-in');
+        resetButton.addEventListener('click', restartLoseGame);
     }
 }
 
-function restartGame() {
+function restartWinGame() {
+    playerScore = 0;
+    computerScore = 0;
+    playerScored.textContent = playerScore;
+    computerScored.textContent = computerScore;
+
+    // Replace header text with original
+    winTitle.classList.replace('fade-in', 'fade-out');
+    setTimeout(() => winTitle.classList.replace('show', 'hide'), 2001);
+    setTimeout(() => winTitle.classList.remove('fade-out'), 2002);
+    setTimeout(() => rulesTitle.classList.replace('hide', 'show'), 2001);
+    rulesTitle.classList.replace('fade-out', 'fade-in-fast');
+    setTimeout(() => rulesTitle.classList.remove('fade-in-fast'), 3002);
+
+    // Replace winner's image with center images
+    winnerImage.classList.replace('fade-in', 'fade-out');
+    setTimeout(() => winnerImage.classList.replace('show', 'hide'), 2001);
+    setTimeout(() => winnerImage.classList.remove('fade-out'), 2002);
+    playerImage.setAttribute('src', './resources/playerYellow.jpg');
+    setTimeout(() => playerImage.classList.replace('hide', 'show'), 2001);
+    playerImage.classList.replace('fade-out', 'fade-in-fast');
+    setTimeout(() => playerImage.classList.remove('fade-in-fast'), 3002);
+    computerImage.setAttribute('src', './resources/computerRed.jpg');
+    setTimeout(() => computerImage.classList.replace('hide', 'show'), 2001);
+    computerImage.classList.replace('fade-out', 'fade-in-fast');
+    setTimeout(() => computerImage.classList.remove('fade-in-fast'), 3002);
+
+    // Replace reset button with original text
+    resetButton.classList.replace('fade-in', 'fade-out');
+    setTimeout(() => resetButton.classList.replace('show', 'hide'), 2001);
+    setTimeout(() => resetButton.classList.remove('fade-out'), 2002);
+    resultTextTop.textContent = 'Welcome player...';
+    setTimeout(() => resultTextTop.classList.replace('hide', 'show'), 2001);
+    resultTextTop.classList.replace('fade-out', 'fade-in-fast');
+    setTimeout(() => resultTextTop.classList.remove('fade-in-fast'), 3002);
+    resultTextBottom.textContent = 'CHOOSE YOUR WEAPON:';
+    setTimeout(() => resultTextBottom.classList.replace('hide', 'show'), 2001);
+    resultTextBottom.classList.replace('fade-out', 'fade-in-fast');
+    setTimeout(() => resultTextBottom.classList.remove('fade-in-fast'), 3002);
+    
+    gamePlay();
+}
+
+function restartLoseGame() {
     playerScore = 0;
     computerScore = 0;
     playerScored.textContent = playerScore;
@@ -160,18 +222,43 @@ function restartGame() {
     resultTextTop.textContent = '';
     resultTextBottom.textContent = '';
 
-    declaredWinner.innerHTML = declaredWinner.innerHTML.replace('Cockadoodledoo! You win!', 'First to score 5 points wins!');
-    declaredWinner.innerHTML = declaredWinner.innerHTML.replace('You lose. Better luck next time... buckAW!', 'First to score 5 points wins!');
-
     resultTextTop.textContent = 'Welcome player...';
     resultTextBottom.textContent = 'CHOOSE YOUR WEAPON:';
 
-    playerImage.classList.replace('hide', 'show');
-    playerImage.setAttribute('src', './resources/playerYellow.jpg');
-    computerImage.classList.replace('hide', 'show');
-    computerImage.setAttribute('src', './resources/computerRed.jpg');
-    winnerImage.classList.replace('show', 'hide');
+    // Replace header text with original
+    loseTitle.classList.replace('fade-in', 'fade-out');
+    setTimeout(() => loseTitle.classList.replace('show', 'hide'), 2001);
+    setTimeout(() => loseTitle.classList.remove('fade-out'), 2002);
+    setTimeout(() => rulesTitle.classList.replace('hide', 'show'), 2001);
+    rulesTitle.classList.replace('fade-out', 'fade-in-fast');
+    setTimeout(() => rulesTitle.classList.remove('fade-in-fast'), 3002);
 
+    // Replace winner's image with center images
+    winnerImage.classList.replace('fade-in', 'fade-out');
+    setTimeout(() => winnerImage.classList.replace('show', 'hide'), 2001);
+    setTimeout(() => winnerImage.classList.remove('fade-out'), 2002);
+    playerImage.setAttribute('src', './resources/playerYellow.jpg');
+    setTimeout(() => playerImage.classList.replace('hide', 'show'), 2001);
+    playerImage.classList.replace('fade-out', 'fade-in-fast');
+    setTimeout(() => playerImage.classList.remove('fade-in-fast'), 3002);
+    computerImage.setAttribute('src', './resources/computerRed.jpg');
+    setTimeout(() => computerImage.classList.replace('hide', 'show'), 2001);
+    computerImage.classList.replace('fade-out', 'fade-in-fast');
+    setTimeout(() => computerImage.classList.remove('fade-in-fast'), 3002);
+
+    // Replace reset button with original text
+    resetButton.classList.replace('fade-in', 'fade-out');
+    setTimeout(() => resetButton.classList.replace('show', 'hide'), 2001);
+    setTimeout(() => resetButton.classList.remove('fade-out'), 2002);
+    resultTextTop.textContent = 'Welcome player...';
+    setTimeout(() => resultTextTop.classList.replace('hide', 'show'), 2001);
+    resultTextTop.classList.replace('fade-out', 'fade-in-fast');
+    setTimeout(() => resultTextTop.classList.remove('fade-in-fast'), 3002);
+    resultTextBottom.textContent = 'CHOOSE YOUR WEAPON:';
+    setTimeout(() => resultTextBottom.classList.replace('hide', 'show'), 2001);
+    resultTextBottom.classList.replace('fade-out', 'fade-in-fast');
+    setTimeout(() => resultTextBottom.classList.remove('fade-in-fast'), 3002);
+    
     gamePlay();
 }
 
