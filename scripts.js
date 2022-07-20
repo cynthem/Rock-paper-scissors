@@ -136,6 +136,8 @@ function declareWinner() {
     computerImage.classList.replace('show', 'hide');
     winnerImage.classList.replace('hide', 'show');
     // Change heading and show winner's image
+    declaredWinner.classList.add('fade-in');
+    winnerImage.classList.add('fade-in');
     if (playerScore > computerScore) {
         declaredWinner.innerHTML = declaredWinner.innerHTML.replace('First to score 5 points wins!', 'Cockadoodledoo! You win!');
         winnerImage.setAttribute('src', './resources/playerChicken.png');
@@ -174,4 +176,3 @@ function restartGame() {
 }
 
 gamePlay();
-
