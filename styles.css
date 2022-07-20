@@ -199,12 +199,12 @@ h2 {
     border-radius: 10px;
 }
 
-.text>p, 
-.text>button {
+.text > p, 
+.text > button {
     text-align: center;
 }
 
-.text>button {
+.text > button {
     width: 80%;
     margin: 10% auto;
     padding: 5%;
@@ -212,6 +212,11 @@ h2 {
     font-size: 24px;
     border: 3px solid black;
     border-radius: 10px;
+}
+
+.text > button:hover {
+    cursor: pointer;
+    transform: scale(1.1);
 }
 
 #result-text-1 {
@@ -232,7 +237,7 @@ h2 {
     margin-bottom: 3%;
 }
 
-.gameplay>button {
+.gameplay > button {
     background-color: #046c13;
     margin-left: 1%;
     margin-right: 1%;
@@ -241,9 +246,14 @@ h2 {
     border-radius: 10px;
 }
 
-#feather>img,
-#egg>img,
-#beak>img {
+.gameplay > button:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+#feather > img,
+#egg > img,
+#beak > img {
     width: 60%;
 }
 
@@ -254,12 +264,12 @@ h2 {
     background-color: black;
 }
 
-.footer>p {
+.footer > p {
     color: white;
     text-align: center;
 }
 
-p>a {
+p > a {
     color: lightblue;
 }
 
