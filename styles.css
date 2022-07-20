@@ -43,11 +43,6 @@
     100% { opacity: 1; }
 }
 
-@keyframes fadeOut {
-    0% { opacity: 1; }
-    100% { opacity: 0; }
-}
-
 html,
 body {
     margin: 0;
@@ -75,11 +70,7 @@ body {
 }
 
 .fade-in {
-    animation: fadeIn 1s;
-}
-
-.fade-out {
-    animation: fadeOut 1s;
+    animation: fadeIn 3s;
 }
 
 
@@ -119,7 +110,7 @@ h2 {
     text-align: center;
     color: white;
     background-color: darkorange;
-    margin: 3% 30%;
+    margin: 3% 25%;
     padding: 1%;
     font-size: 30px;
     letter-spacing: 0.02em;
@@ -192,7 +183,8 @@ h2 {
     width: 45%;
     border: 3px solid black;
     border-radius: 10px;
-    animation: fadeIn 1s;
+    margin-left: 4%;
+    margin-right: 4%;
 }
 
 #end-result {
