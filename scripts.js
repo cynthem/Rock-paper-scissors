@@ -62,8 +62,6 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-
-
 function bothTied(playerSelection) {
     playerScored.textContent = playerScore;
     computerScored.textContent = computerScore;
@@ -197,12 +195,12 @@ function restartWinGame() {
     resetButton.classList.replace('fade-in', 'fade-out');
     setTimeout(() => resetButton.classList.replace('show', 'hide'), 2001);
     setTimeout(() => resetButton.classList.remove('fade-out'), 2002);
-    resultTextTop.textContent = 'Welcome player...';
     setTimeout(() => resultTextTop.classList.replace('hide', 'show'), 2001);
+    setTimeout(() => resultTextTop.textContent = 'Welcome player...', 2001);
     resultTextTop.classList.replace('fade-out', 'fade-in-fast');
     setTimeout(() => resultTextTop.classList.remove('fade-in-fast'), 3002);
-    resultTextBottom.textContent = 'CHOOSE YOUR WEAPON:';
     setTimeout(() => resultTextBottom.classList.replace('hide', 'show'), 2001);
+    setTimeout(() => resultTextBottom.textContent = 'CHOOSE YOUR WEAPON:', 2001);
     resultTextBottom.classList.replace('fade-out', 'fade-in-fast');
     setTimeout(() => resultTextBottom.classList.remove('fade-in-fast'), 3002);
     
@@ -250,12 +248,12 @@ function restartLoseGame() {
     resetButton.classList.replace('fade-in', 'fade-out');
     setTimeout(() => resetButton.classList.replace('show', 'hide'), 2001);
     setTimeout(() => resetButton.classList.remove('fade-out'), 2002);
-    resultTextTop.textContent = 'Welcome player...';
     setTimeout(() => resultTextTop.classList.replace('hide', 'show'), 2001);
+    setTimeout(() => resultTextTop.textContent = 'Welcome player...', 2001);
     resultTextTop.classList.replace('fade-out', 'fade-in-fast');
     setTimeout(() => resultTextTop.classList.remove('fade-in-fast'), 3002);
-    resultTextBottom.textContent = 'CHOOSE YOUR WEAPON:';
     setTimeout(() => resultTextBottom.classList.replace('hide', 'show'), 2001);
+    setTimeout(() => resultTextBottom.textContent = 'CHOOSE YOUR WEAPON:', 2001);
     resultTextBottom.classList.replace('fade-out', 'fade-in-fast');
     setTimeout(() => resultTextBottom.classList.remove('fade-in-fast'), 3002);
     
