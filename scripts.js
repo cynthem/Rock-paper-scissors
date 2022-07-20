@@ -88,14 +88,20 @@ function playerWon(playerSelection) {
     resultTextBottom.textContent = 'You win this round!';
     if (playerSelection === 'Feather') {
         playerImage.setAttribute('src', './resources/playerFeather.jpg');
+        setTimeout(() => playerImage.classList.add('success'), 50);
+        setTimeout(() => playerImage.classList.remove('success'), 500);
         computerImage.setAttribute('src', './resources/computerBeak.jpg');
         resultTextTop.textContent = 'Feather tickles beak.';
     } else if (playerSelection === 'Beak') {
         playerImage.setAttribute('src', './resources/playerBeak.jpg');
+        setTimeout(() => playerImage.classList.add('success'), 50);
+        setTimeout(() => playerImage.classList.remove('success'), 500);
         computerImage.setAttribute('src', './resources/computerEgg.jpg');
         resultTextTop.textContent = 'Beak pecks egg.';
     } else if (playerSelection === 'Egg') {
         playerImage.setAttribute('src', './resources/playerEgg.jpg');
+        setTimeout(() => playerImage.classList.add('success'), 50);
+        setTimeout(() => playerImage.classList.remove('success'), 500);
         computerImage.setAttribute('src', './resources/computerFeather.jpg');
         resultTextTop.textContent = 'Egg flattens feather.';
     };
@@ -110,14 +116,20 @@ function playerLost(playerSelection) {
     if (playerSelection === 'Feather') {
         playerImage.setAttribute('src', './resources/playerFeather.jpg');
         computerImage.setAttribute('src', './resources/computerEgg.jpg');
+        setTimeout(() => computerImage.classList.add('success'), 50);
+        setTimeout(() => computerImage.classList.remove('success'), 500);
         resultTextTop.textContent = 'Egg flattens feather.';
     } else if (playerSelection === 'Beak') {
         playerImage.setAttribute('src', './resources/playerBeak.jpg');
         computerImage.setAttribute('src', './resources/computerFeather.jpg');
+        setTimeout(() => computerImage.classList.add('success'), 50);
+        setTimeout(() => computerImage.classList.remove('success'), 500);
         resultTextTop.textContent = 'Feather tickles beak.';
     } else if (playerSelection === 'Egg') {
         playerImage.setAttribute('src', './resources/playerEgg.jpg');
         computerImage.setAttribute('src', './resources/computerBeak.jpg');
+        setTimeout(() => computerImage.classList.add('success'), 50);
+        setTimeout(() => computerImage.classList.remove('success'), 500);
         resultTextTop.textContent = 'Beak pecks egg.';
     };
     if (computerScore === 5) declareWinner();
@@ -197,11 +209,11 @@ function restartWinGame() {
     setTimeout(() => resetButton.classList.remove('fade-out'), 2002);
     setTimeout(() => resultTextTop.classList.replace('hide', 'show'), 2001);
     setTimeout(() => resultTextTop.textContent = 'Welcome player...', 2001);
-    resultTextTop.classList.replace('fade-out', 'fade-in-fast');
+    setTimeout(() => resultTextTop.classList.replace('fade-out', 'fade-in-fast'), 2001);
     setTimeout(() => resultTextTop.classList.remove('fade-in-fast'), 3002);
     setTimeout(() => resultTextBottom.classList.replace('hide', 'show'), 2001);
     setTimeout(() => resultTextBottom.textContent = 'CHOOSE YOUR WEAPON:', 2001);
-    resultTextBottom.classList.replace('fade-out', 'fade-in-fast');
+    setTimeout(() => resultTextBottom.classList.replace('fade-out', 'fade-in-fast'), 2001);
     setTimeout(() => resultTextBottom.classList.remove('fade-in-fast'), 3002);
     
     gamePlay();
@@ -250,11 +262,11 @@ function restartLoseGame() {
     setTimeout(() => resetButton.classList.remove('fade-out'), 2002);
     setTimeout(() => resultTextTop.classList.replace('hide', 'show'), 2001);
     setTimeout(() => resultTextTop.textContent = 'Welcome player...', 2001);
-    resultTextTop.classList.replace('fade-out', 'fade-in-fast');
+    setTimeout(() => resultTextTop.classList.replace('fade-out', 'fade-in-fast'), 2001);
     setTimeout(() => resultTextTop.classList.remove('fade-in-fast'), 3002);
     setTimeout(() => resultTextBottom.classList.replace('hide', 'show'), 2001);
     setTimeout(() => resultTextBottom.textContent = 'CHOOSE YOUR WEAPON:', 2001);
-    resultTextBottom.classList.replace('fade-out', 'fade-in-fast');
+    setTimeout(() => resultTextBottom.classList.replace('fade-out', 'fade-in-fast'), 2001);
     setTimeout(() => resultTextBottom.classList.remove('fade-in-fast'), 3002);
     
     gamePlay();
