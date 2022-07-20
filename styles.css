@@ -40,7 +40,12 @@
 
 @keyframes fadeIn {
     0% { opacity: 0; }
-    100% { opacity: 1; }
+    50%, 100% { opacity: 1; }
+}
+
+@keyframes fadeOut {
+    0%, 50% { opacity: 1; }
+    100% { opacity: 0; }
 }
 
 html,
@@ -70,7 +75,19 @@ body {
 }
 
 .fade-in {
-    animation: fadeIn 3s;
+    animation: fadeIn 2s;
+}
+
+.fade-in-fast {
+    animation: fadeIn 1s;
+}
+
+.fade-out {
+    animation: fadeOut 2s;
+}
+
+.fade-out-fast {
+    animation: fadeOut 1s;
 }
 
 
