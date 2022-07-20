@@ -86,8 +86,9 @@ body {
     animation: fadeOut 2s;
 }
 
-.fade-out-fast {
-    animation: fadeOut 1s;
+.success {
+    border: 6px lightblue solid;
+    box-shadow: 0 0 15px blue;
 }
 
 
