@@ -38,6 +38,16 @@
          url('./resources/fonts/averia-libre-v16-latin-700.svg#AveriaLibre') format('svg'); /* Legacy iOS */
 }
 
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
 html,
 body {
     margin: 0;
@@ -62,6 +72,14 @@ body {
 
 .hide {
     display: none;
+}
+
+.fade-in {
+    animation: fadeIn 1s;
+}
+
+.fade-out {
+    animation: fadeOut 1s;
 }
 
 
@@ -174,6 +192,7 @@ h2 {
     width: 45%;
     border: 3px solid black;
     border-radius: 10px;
+    animation: fadeIn 1s;
 }
 
 #end-result {
